@@ -188,15 +188,15 @@ def data_cleaning(df_data,remove_cols,missing_thres,df_catOrNum,standardisation_
     features=features_categorical + features_numerical_nonmissing + features_numerical_missing_filled
     #features = features =list(X)
 
-    try:
+    #try:
 
-        X.loc[:,'ResidentInUKMonths_Bin5'] = pd.qcut(X.loc[:,'ResidentInUKMonths'],q=5,duplicates='drop').astype("object")
-        del X['ResidentInUKMonths']
+        #X.loc[:,'ResidentInUKMonths_Bin5'] = pd.qcut(X.loc[:,'ResidentInUKMonths'],q=5,duplicates='drop').astype("object")
+        #del X['ResidentInUKMonths']
 
-        features.remove('ResidentInUKMonths')
+        #features.remove('ResidentInUKMonths')
 
-    except:
-        pass
+    #except:
+        #pass
 
     X_dummy = pd.get_dummies(X[features])
     features_dummy = X_dummy.columns
@@ -218,7 +218,7 @@ def data_cleaning(df_data,remove_cols,missing_thres,df_catOrNum,standardisation_
 
     X_dummy = X_dummy[features_dummy]
 
-    X_dummy.filter(regex="^ResidentInUKMonths").columns
+    #X_dummy.filter(regex="^ResidentInUKMonths").columns
     
     
     
